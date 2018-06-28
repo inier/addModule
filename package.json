@@ -1,0 +1,23 @@
+{
+  "name": "addmodule",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pureZjr/addModule.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pureZjr/addModule/issues"
+  },
+  "homepage": "https://github.com/pureZjr/addModule#readme",
+  "dependencies": {
+    "colors": "^1.3.0",
+    "yargs": "^11.0.0"
+  }
+}
