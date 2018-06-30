@@ -1,6 +1,7 @@
 const handel = require('./handle')
 const colors = require('colors')
 const path = require('path')
+const emoji = require('node-emoji')
 module.exports = async function(argv) {
   argv.file = argv.file.toString()
   const existPathFolder = await handel.existFolder(path.resolve(argv.path))
@@ -30,7 +31,8 @@ module.exports = async function(argv) {
   // 不存在path的文件夹
   if (!existPathFolder) {
     console.warn(
-      colors.green(`是否创建 ${path.resolve(argv.path)} 文件夹？：y/n`)
+      emoji.get('nerd_face') +
+        colors.green(`  是否创建 ${path.resolve(argv.path)} 文件夹？：y/n`)
     )
 
     process.stdin.on('data', async chunk => {

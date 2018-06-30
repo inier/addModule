@@ -18,6 +18,8 @@
   "homepage": "https://github.com/pureZjr/addModule#readme",
   "dependencies": {
     "colors": "^1.3.0",
+    "inquirer": "^6.0.0",
+    "node-emoji": "^1.8.1",
     "yargs": "^11.0.0"
   }
 }

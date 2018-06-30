@@ -100,5 +100,22 @@ module.exports = {
 
       resolve()
     })
+  },
+  /**
+   * 获取路径下面的文件夹
+   * @param filePath // 路径
+   * @param filterFolder // 过滤不需要的文件夹，默认tools跟node_modules
+   */
+  getFolder: function(filePath, filterFolder) {
+    return new Promise(function(resolve, reject) {
+      return fs.readdir(path.resolve(filePath), 'utf8', (err, files) => {
+        filterFolder = filterFolder || []
+        const filters = ['node_modules', 'tools'].concat(filterFolder)
+        const f = files.filter(v => {
+          return !v.includes('.') && !filters.includes(v)
+        })
+        resolve(f)
+      })
+    })
   }
 }
