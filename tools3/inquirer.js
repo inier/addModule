@@ -12,6 +12,13 @@ module.exports = async function run({ placementPath }) {
   // 模板文件名
   const template = await handel.getFolder('tools3/Template')
   const templateChoice = [].concat(template)
+  const inputName = [
+    {
+      type: 'input',
+      name: 'file',
+      message: '请输入文件名称'
+    }
+  ]
   const selectTemplate = [
     {
       type: 'list',
@@ -38,10 +45,14 @@ module.exports = async function run({ placementPath }) {
     }
   ]
   // prompts执行步骤
-  const prompts = [].concat(selectTemplate).concat(selectPlacementPath)
+  const prompts = []
+    .concat(inputName)
+    .concat(selectTemplate)
+    .concat(selectPlacementPath)
   return new Promise(async function(resolve, reject) {
     const answers = await inquirer.prompt(prompts)
     resolve({
+      file: answers.file,
       placementPath: answers.path,
       templatePath: `./Template/${answers.template}` // 这里暂时鞋子模板地址，也可以换成选择放置地址的方法
     })
